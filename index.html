@@ -630,7 +630,7 @@
 
         // Setup de event listeners
         function setupEventListeners() {
-            // Options click
+            // Options click - agora avança automaticamente
             document.querySelectorAll('.option').forEach(option => {
                 option.addEventListener('click', function() {
                     const step = this.closest('.step');
@@ -647,12 +647,21 @@
                     // Salva resposta
                     answers[`step_${stepNumber}`] = this.dataset.value;
                     
-                    // Habilita botão
-                    step.querySelector('.btn-continue').disabled = false;
+                    // Avança automaticamente após 500ms para perguntas
+                    // Mas mantém botão para etapas com imagem
+                    const hasButton = step.querySelector('.btn-continue');
+                    if (!hasButton) {
+                        setTimeout(() => {
+                            nextStep();
+                        }, 500);
+                    } else {
+                        // Se tem botão, apenas habilita
+                        hasButton.disabled = false;
+                    }
                 });
             });
 
-            // Continue buttons
+            // Continue buttons (apenas para etapas com imagem)
             document.querySelectorAll('.btn-continue').forEach(button => {
                 button.addEventListener('click', function() {
                     nextStep();
