@@ -1170,22 +1170,6 @@
                 }
             }, 1000);
         }
-
-        // Modificar nextStep para iniciar countdown na etapa 21
-        const originalNextStep = nextStep;
-        function nextStepWithTimer() {
-            originalNextStep();
-            
-            // Se chegou na etapa 21, iniciar countdown
-            if (currentStep === 21) {
-                setTimeout(() => {
-                    startCountdown();
-                }, 500);
-            }
-        }
-        
-        // Sobrescrever nextStep
-        nextStep = nextStepWithTimer;
     </script>
 </body>
 </html>
