@@ -275,12 +275,23 @@
         }
 
         .cta-box {
-            background: #2563eb;
-            color: white;
-            padding: 32px;
-            border-radius: 12px;
+            background: transparent;
+            padding: 48px 32px;
+            border-radius: 16px;
             text-align: center;
-            margin-top: 32px;
+            margin-top: 48px;
+        }
+
+        .cta-box .cta-message {
+            font-size: 22px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            color: #1a1a1a;
+        }
+
+        .cta-box .cta-message strong {
+            color: #dc2743;
+            font-weight: 700;
         }
 
         .cta-box h3 {
@@ -295,20 +306,22 @@
         }
 
         .btn-cta {
-            background: white;
-            color: #2563eb;
-            padding: 16px 48px;
-            border-radius: 10px;
-            font-size: 18px;
+            background: #2563eb;
+            color: white;
+            padding: 18px 64px;
+            border-radius: 12px;
+            font-size: 20px;
             font-weight: 700;
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
         }
 
         .btn-cta:hover {
             transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 30px rgba(37, 99, 235, 0.4);
+            background: #1d4ed8;
         }
 
         @media (max-width: 768px) {
