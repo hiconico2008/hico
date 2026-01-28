@@ -1102,6 +1102,13 @@
                     startLoading();
                 }
                 
+                // Se for a etapa 21 (oferta final), inicia countdown
+                if (currentStep === 21) {
+                    setTimeout(() => {
+                        startCountdown();
+                    }, 500);
+                }
+                
                 // Scroll para o topo
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
