@@ -1063,11 +1063,20 @@
                 });
             });
 
-            // CTA button
-            const ctaButton = document.querySelector('.btn-cta');
-            if (ctaButton) {
-                ctaButton.addEventListener('click', function() {
-                    alert('Aqui você redirecionaria para a página de venda ou captura de contato!');
+            // Botão "Liberar acesso"
+            const liberarAcessoBtn = document.querySelector('.btn-cta');
+            if (liberarAcessoBtn && !liberarAcessoBtn.hasAttribute('data-listener')) {
+                liberarAcessoBtn.setAttribute('data-listener', 'true');
+                liberarAcessoBtn.addEventListener('click', function() {
+                    nextStep();
+                });
+            }
+
+            // CTA button final
+            const ctaButtonFinal = document.querySelector('.btn-final-cta');
+            if (ctaButtonFinal) {
+                ctaButtonFinal.addEventListener('click', function() {
+                    alert('Redirecionando para a página de checkout do Desafio de 30 Dias!');
                 });
             }
         }
