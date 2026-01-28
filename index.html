@@ -1130,6 +1130,46 @@
             console.log('Respostas do usuário:', answers);
             return answers;
         };
+
+        // Countdown timer de 3 minutos
+        function startCountdown() {
+            let timeLeft = 180; // 3 minutos em segundos
+            const countdownElement = document.getElementById('countdown');
+            
+            countdownInterval = setInterval(() => {
+                timeLeft--;
+                
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                
+                countdownElement.textContent = 
+                    String(minutes).padStart(2, '0') + ':' + 
+                    String(seconds).padStart(2, '0');
+                
+                // Quando acabar o tempo
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownElement.textContent = '00:00';
+                    countdownElement.style.color = '#dc2626';
+                }
+            }, 1000);
+        }
+
+        // Modificar nextStep para iniciar countdown na etapa 21
+        const originalNextStep = nextStep;
+        function nextStepWithTimer() {
+            originalNextStep();
+            
+            // Se chegou na etapa 21, iniciar countdown
+            if (currentStep === 21) {
+                setTimeout(() => {
+                    startCountdown();
+                }, 500);
+            }
+        }
+        
+        // Sobrescrever nextStep
+        nextStep = nextStepWithTimer;
     </script>
 </body>
 </html>
